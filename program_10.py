@@ -72,9 +72,6 @@ def CalcTqmean(Qvalues):
        duration rather than the volume of streamflow. The routine returns
        the Tqmean value for the given data array."""
     
-    # remove NoData values
-    #DataDF.dropna()
-    
     # count number of values greater than mean
     vals_gt_mean = (Qvalues > Qvalues.mean()).sum()
 
@@ -90,9 +87,6 @@ def CalcRBindex(Qvalues):
        values of day-to-day changes in daily discharge volumes
        (pathlength) by total discharge volumes for each year. The
        routine returns the RBindex value for the given data array."""
-    
-    # remove NoData values
-    #DataDF.dropna()
 
     # absolute difference between values
     Dtd_abs_diff = Qvalues.diff().abs() 
@@ -115,9 +109,7 @@ def Calc7Q(Qvalues):
        picking the lowest average flow in any 7-day period during
        that year.  The routine returns the 7Q (7-day low flow) value
        for the given data array."""
-      
-    #DataDF.dropna()
-    
+     
     val7Q = Qvalues.rolling(7).mean().min()      
     
     return ( val7Q )
