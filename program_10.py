@@ -139,13 +139,13 @@ def GetAnnualStatistics(DataDF):
     
     # define index as dates of ressmpled data. 
     # data is resampled annually with end of year in September
-    annualIndex = DataDF.resample('A-SEP').mean().index
+    annualIndex = DataDF.resample('AS-OCT').mean().index
     
     # create empty dataframe
     WYDataDF = pd.DataFrame(data=0, index=annualIndex, columns=colNames)
     
     # resample data
-    WYData = DataDF.resample('A-SEP')
+    WYData = DataDF.resample('AS-OCT')
     
     #add metrics to dataframe
     WYDataDF['site_no'] = WYData['site_no'].min()
