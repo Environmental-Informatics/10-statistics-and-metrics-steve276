@@ -255,55 +255,55 @@ if __name__ == '__main__':
         print("-"*50, "\n\nSummary of monthly metrics...\n\n", MoDataDF[file].describe(), "\n\nAnnual Monthly Averages...\n\n", MonthlyAverages[file])
         
         
-# save outputs
-# annual metrics to csv
+        # save outputs
+        # annual metrics to csv
 
-a_Wildcat = WYDataDF['Wildcat'] 
-a_Wildcat['Station'] = 'Wildcat'
+    a_Wildcat = WYDataDF['Wildcat'] 
+    a_Wildcat['Station'] = 'Wildcat'
 
-a_Tippe = WYDataDF['Tippe'] 
-a_Tippe['Station'] = 'Tippe'
+    a_Tippe = WYDataDF['Tippe'] 
+    a_Tippe['Station'] = 'Tippe'
 
-annualTable = a_Wildcat.append(a_Tippe)
-annualTable.to_csv('Annual_Metrics.csv', sep = ',', index=True)
+    annualTable = a_Wildcat.append(a_Tippe)
+    annualTable.to_csv('Annual_Metrics.csv', sep = ',', index=True)
  
     
 
-# monthly metrics to csv
+    # monthly metrics to csv
 
-m_Wildcat = MoDataDF['Wildcat'] 
-m_Wildcat['Station'] = 'Wildcat'
+    m_Wildcat = MoDataDF['Wildcat'] 
+    m_Wildcat['Station'] = 'Wildcat'
 
-m_Tippe = MoDataDF['Tippe'] 
-m_Tippe['Station'] = 'Tippe'
+    m_Tippe = MoDataDF['Tippe'] 
+    m_Tippe['Station'] = 'Tippe'
 
-m_Wildcat = m_Wildcat.append(m_Tippe)
-m_Wildcat.to_csv('Monthly_Metrics.csv', sep = ',', index=True)
-
-
-
-# annual averages to txt
-
-aav_Wildcat = AnnualAverages['Wildcat'] 
-aav_Wildcat['Station'] = 'Wildcat'
-
-aav_Tippe = AnnualAverages['Tippe'] 
-aav_Tippe['Station'] = 'Tippe'
-
-aav_Wildcat = aav_Wildcat.append(aav_Tippe)
-aav_Wildcat.to_csv('Average_Annual_Metrics.txt', sep = '\t', index=True)
+    m_Wildcat = m_Wildcat.append(m_Tippe)
+    m_Wildcat.to_csv('Monthly_Metrics.csv', sep = ',', index=True)
 
 
 
-# monthly metrics to txt
+    # annual averages to txt
 
-mav_Wildcat = MonthlyAverages['Wildcat'] 
-mav_Wildcat['Station'] = 'Wildcat'
+    aav_Wildcat = AnnualAverages['Wildcat'] 
+    aav_Wildcat['Station'] = 'Wildcat'
 
-mav_Tippe = MonthlyAverages['Tippe'] 
-mav_Tippe['Station'] = 'Tippe'
+    aav_Tippe = AnnualAverages['Tippe'] 
+    aav_Tippe['Station'] = 'Tippe'
 
-mav_Wildcat = mav_Wildcat.append(mav_Tippe)
-mav_Wildcat.to_csv('Average_Monthly_Metrics.txt', sep = '\t', index=True)
+    aav_Wildcat = aav_Wildcat.append(aav_Tippe)
+    aav_Wildcat.to_csv('Average_Annual_Metrics.txt', sep = '\t', index=True)
+
+
+
+    # monthly metrics to txt
+
+    mav_Wildcat = MonthlyAverages['Wildcat'] 
+    mav_Wildcat['Station'] = 'Wildcat'
+
+    mav_Tippe = MonthlyAverages['Tippe'] 
+    mav_Tippe['Station'] = 'Tippe'
+
+    mav_Wildcat = mav_Wildcat.append(mav_Tippe)
+    mav_Wildcat.to_csv('Average_Monthly_Metrics.txt', sep = '\t', index=True)
 
 
